@@ -2,14 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="font1" class="asciiPanel.AsciiFont">
+    <bean name="xml-font1" class="asciiPanel.AsciiFont">
         <constructor-arg index="0" value="cp437_8x8.png"/>
         <constructor-arg index="1" value="8"/>
         <constructor-arg index="2" value="8"/>
     </bean>
-    <bean name="panel1" class="asciiPanel.AsciiPanel">
+    <bean name="xml-font2" class="asciiPanel.AsciiFont">
+        <constructor-arg index="0" value="talryth_square_15x15.png"/>
+        <constructor-arg index="1" value="15"/>
+        <constructor-arg index="2" value="15"/>
+    </bean>
+    <bean name="xml-panel1" class="asciiPanel.AsciiPanel">
         <constructor-arg index="0" value="80"/>
         <constructor-arg index="1" value="24"/>
-        <constructor-arg index="2" ref="font1"/>
+        <constructor-arg index="2" ref="xml-font1"/>
+    </bean>
+    <bean name="xml-panel2" class="asciiPanel.AsciiPanel">
+        <constructor-arg index="0" value="80"/>
+        <constructor-arg index="1" value="24"/>
+        <constructor-arg index="2" ref="xml-font2"/>
     </bean>
 </beans>

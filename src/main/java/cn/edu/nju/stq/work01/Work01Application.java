@@ -28,8 +28,8 @@ public class Work01Application {
 
     protected static void main0(String[] args) {
         System.out.println("这是不使用Spring框架的模式：");
-        AsciiPanel myPanel = new AsciiPanel(80, 24, AsciiFont.TALRYTH_15_15);
-        showWindows(myPanel, "Non-Spring");
+        AsciiPanel myPanel1 = new AsciiPanel(80, 24, AsciiFont.TALRYTH_15_15);
+        showWindows(myPanel1, "Non-Spring");
     }
 
     protected static void main1(String[] args) {
@@ -37,16 +37,20 @@ public class Work01Application {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
         //AsciiFont font = context.getBean("font1", AsciiFont.class);
         //System.out.println(AsciiFontToString(font));
-        AsciiPanel myPanel = context.getBean("panel1", AsciiPanel.class);
-        showWindows(myPanel, "Spring-XML");
+        AsciiPanel myPanel1 = context.getBean("xml-panel1", AsciiPanel.class);
+        showWindows(myPanel1, "Spring-XML CP437_8x8");
+        AsciiPanel myPanel2 = context.getBean("xml-panel2", AsciiPanel.class);
+        showWindows(myPanel2, "Spring-XML TALRYTH_15_15");
     }
 
     protected static void main2(String[] args) {
         System.out.println("这是使用Spring框架的Java配置方式的模式：");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AsciiPanelConfig.class);
-        AsciiPanel myPanel = context.getBean("panel2", AsciiPanel.class);
+        AsciiPanel myPanel1 = context.getBean("java-panel1", AsciiPanel.class);
+        AsciiPanel myPanel2 = context.getBean("java-panel2", AsciiPanel.class);
         //System.out.println(myPanel.getAsciiFont().getFontFilename());
-        showWindows(myPanel, "Spring-Java");
+        showWindows(myPanel1, "Spring-Java CP437_12x12");
+        showWindows(myPanel2, "Spring-Java TAFFER_10x10");
     }
 
     protected static String AsciiFontToString(AsciiFont af) {
@@ -65,22 +69,22 @@ public class Work01Application {
 
 @Configuration
 class AsciiPanelConfig {
-    @Bean(name = "font1")
+    @Bean(name = "java-font1")
     public AsciiFont CP437_12x12() {
         return new AsciiFont("cp437_12x12.png", 12, 12);
     }
 
-    @Bean(name = "font2")
+    @Bean(name = "java-font2")
     public AsciiFont TAFFER_10x10() {
         return new AsciiFont("taffer_10x10.png", 10, 10);
     }
 
-    @Bean(name = "panel1")
+    @Bean(name = "java-panel1")
     public AsciiPanel myAsciiPanel1() {
         return new AsciiPanel(80, 24, CP437_12x12());
     }
 
-    @Bean(name = "panel2")
+    @Bean(name = "java-panel2")
     public AsciiPanel myAsciiPanel2() {
         return new AsciiPanel(80, 24, TAFFER_10x10());
     }

@@ -16,5 +16,5 @@
 
 实现了基于XML的配置以及基于Java的配置  
 实现了两个脚本分别对此运行：  
-`./run-xml`用于运行基于XML的配置，此时采用的是`CP437_8x8`的`AsciiFont`，并将生成一个窗口将其显示。  
-`./run-java`用于运行基于Java的配置，此时采用的是`TAFFER_10x10`的`AsciiFont`，并将生成一个窗口将其显示。
+`./run-xml`用于运行基于XML的配置，此时采用的是`CP437_8x8`以及`TALRYTH_15_15`的`AsciiFont`，并将分别生成窗口将其显示。  
+`./run-java`用于运行基于Java的配置，此时采用的是`TAFFER_10x10`以及`CP437_12x12`的`AsciiFont`，并将分别生成窗口将其显示。
