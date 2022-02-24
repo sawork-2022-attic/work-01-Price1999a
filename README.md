@@ -12,4 +12,3 @@
 
 要求Maven工程项目代码，参考示例（[sa-spring/cashregister](https://github.com/sa-spring/cashregister) ），实现至少两个不同的构件系统configration，且包含可直接运行的main函数。
 
-TEST
