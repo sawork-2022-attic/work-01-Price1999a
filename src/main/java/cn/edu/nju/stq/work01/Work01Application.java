@@ -55,7 +55,7 @@ public class Work01Application {
 
     protected static void showWindows(AsciiPanel myPanel, String s) {
         myPanel.write(s);
-        JFrame jf = new JFrame("不使用Spring框架的模式");
+        JFrame jf = new JFrame("使用:\t" + s);
         jf.setBounds(300, 100, 400, 200);
         jf.add(myPanel);
         jf.setDefaultCloseOperation(2);
